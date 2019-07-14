@@ -130,13 +130,13 @@ const Mutations = {
     });
     // 3. Email them that reset token
     const mailRes = await transport.sendMail({
-      from: 'yves.vinckier@live.fr',
+      from: 'wes@wesbos.com',
       to: user.email,
       subject: 'Your Password Reset Token',
       html: makeANiceEmail(`Your Password Reset Token is here!
       \n\n
       <a href="${process.env
-        .FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
+          .FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
     });
 
     // 4. Return the message
@@ -205,6 +205,45 @@ const Mutations = {
         },
         where: {
           id: args.userId,
+        },
+      },
+      info
+    );
+  },
+  async addToCart(parent, args, ctx, info) {
+    // 1. Make sure they are signed in
+    const { userId } = ctx.request;
+    if (!userId) {
+      throw new Error('You must be signed in soooon');
+    }
+    // 2. Query the users current cart
+    const [existingCartItem] = await ctx.db.query.cartItems({
+      where: {
+        user: { id: userId },
+        item: { id: args.id },
+      },
+    });
+    // 3. Check if that item is already in their cart and increment by 1 if it is
+    if (existingCartItem) {
+      console.log('This item is already in their cart');
+      return ctx.db.mutation.updateCartItem(
+        {
+          where: { id: existingCartItem.id },
+          data: { quantity: existingCartItem.quantity + 1 },
+        },
+        info
+      );
+    }
+    // 4. If its not, create a fresh CartItem for that user!
+    return ctx.db.mutation.createCartItem(
+      {
+        data: {
+          user: {
+            connect: { id: userId },
+          },
+          item: {
+            connect: { id: args.id },
+          },
         },
       },
       info
