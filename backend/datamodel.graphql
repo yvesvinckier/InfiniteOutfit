@@ -13,8 +13,8 @@ type User {
   email: String! @unique
   password: String!
   resetToken: String
-  resetTokenExpiry: String
-  permissions: [Permission] @scalarList(strategy: RELATION)
+  resetTokenExpiry: Float
+  permissions: [Permission!]! @scalarList(strategy: RELATION)
   cart: [CartItem!]!
 }
 
