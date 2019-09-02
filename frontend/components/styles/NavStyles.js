@@ -32,7 +32,7 @@ const NavStyles = styled.ul`
       transform: translateX(-50%);
       transition: width 0.4s ease-out;
       left: 50%;
-      margin-top: 1.2rem;
+      margin-top: 2rem;
     }
     &:hover,
     &:focus {
@@ -47,6 +47,16 @@ const NavStyles = styled.ul`
     width: 100%;
     justify-content: center;
     font-size: 1rem;
+    a,
+    button {
+      &:hover,
+      &:focus {
+        outline: none;
+        &:after {
+          width: calc(100% - 20px);
+        }
+      }
+    }
   }
 `;
 
