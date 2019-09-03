@@ -1,17 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const PriceTag = styled.span`
-  background: ${props => props.theme.red};
-  transform: rotate(3deg);
-  color: white;
-  font-weight: 600;
+  font-weight: 400;
   padding: 5px;
-  line-height: 1;
-  font-size: 3rem;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  line-height: 1.42;
+  font-size: 1.4rem;
   display: inline-block;
-  position: absolute;
-  top: -3px;
-  right: -3px;
+  color: ${props => props.theme.black};
 `;
 
 export default PriceTag;

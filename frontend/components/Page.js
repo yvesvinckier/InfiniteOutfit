@@ -25,12 +25,7 @@ const Inner = styled.div`
 `;
 
 injectGlobal`
-  @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -43,11 +38,21 @@ injectGlobal`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'radnika_next';
+    font-variant-ligatures: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
   }
   a {
     text-decoration: none;
     color: ${theme.black};
+  }
+  img {
+    display: block;
+  	width: 100%;
+  	height: auto;
   }
 `;
 
