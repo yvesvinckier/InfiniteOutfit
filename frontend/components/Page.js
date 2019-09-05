@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider, injectGlobal } from "styled-components";
 import Header from "./Header";
+import Footer from "./Footer";
 import Meta from "./Meta";
 
 const theme = {
@@ -10,7 +11,12 @@ const theme = {
   lightgrey: "#E1E1E1",
   offWhite: "#EDEDED",
   maxWidth: "1430px",
-  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
+  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)",
+  responsive: {
+    small: "40em",
+    medium: "60em",
+    large: "100em"
+  }
 };
 
 const StyledPage = styled.div`
@@ -49,6 +55,9 @@ injectGlobal`
     text-decoration: none;
     color: ${theme.black};
   }
+  ol, ul {
+    list-style: none;
+  }
   img {
     display: block;
   	width: 100%;
@@ -64,6 +73,7 @@ class Page extends Component {
           <Meta />
           <Header />
           <Inner>{this.props.children}</Inner>
+          <Footer />
         </StyledPage>
       </ThemeProvider>
     );
