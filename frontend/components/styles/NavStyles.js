@@ -32,7 +32,7 @@ const NavStyles = styled.ul`
       transform: translateX(-50%);
       transition: width 0.4s ease-out;
       left: 50%;
-      margin-top: 2rem;
+      margin-top: 3.2rem;
     }
     &:hover,
     &:focus {

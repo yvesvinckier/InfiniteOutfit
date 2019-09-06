@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import Meta from "./Meta";
 
 const theme = {
-  red: "#FF0000",
+  red: "rgb(228, 37, 37)",
   black: "#393939",
   grey: "#3A3A3A",
   lightgrey: "#E1E1E1",

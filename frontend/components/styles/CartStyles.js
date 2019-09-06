@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const CartStyles = styled.div`
   padding: 20px;
@@ -13,8 +13,8 @@ const CartStyles = styled.div`
   bottom: 0;
   transform: translateX(100%);
   transition: all 0.3s;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
-  z-index: 5;
+  box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.15);
+  z-index: 55;
   display: grid;
   grid-template-rows: auto 1fr auto;
   ${props => props.open && `transform: translateX(0);`};
@@ -24,7 +24,7 @@ const CartStyles = styled.div`
     padding-bottom: 2rem;
   }
   footer {
-    border-top: 10px double ${props => props.theme.black};
+    border-top: 5px solid ${props => props.theme.black};
     margin-top: 2rem;
     padding-top: 2rem;
     display: grid;
@@ -34,6 +34,9 @@ const CartStyles = styled.div`
     font-weight: 900;
     p {
       margin: 0;
+      font-weight: 600;
+      font-size: 2.8rem;
+      letter-spacing: 0.7px;
     }
   }
   ul {

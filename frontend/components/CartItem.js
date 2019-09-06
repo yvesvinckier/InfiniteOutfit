@@ -12,6 +12,10 @@ const CartItemStyles = styled.li`
   grid-template-columns: auto 1fr auto;
   img {
     margin-right: 10px;
+    height: 80px;
+  }
+  .cart-item-details {
+    padding: 20px;
   }
   h3,
   p {
